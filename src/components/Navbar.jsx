@@ -2,10 +2,10 @@ function Navbar() {
     return (
 <nav>
     <ul>
-        <li>Home</li>
-        <li>Random Character</li>
-        <li>Favorites</li>
-        <li>Extra</li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Favorites</a></li>
+        <li><a href="#">Randomizer</a></li>
+        <li><a href="#">Extras</a></li>
     </ul>
 </nav>
     );
