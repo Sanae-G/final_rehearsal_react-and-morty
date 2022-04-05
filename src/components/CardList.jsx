@@ -5,6 +5,7 @@ function CardList() {
 
   const apiURL="https://rickandmortyapi.com/api/character";
   const [characters, setCharacters] = useState([]);
+  const [showMore, setShowMore] = useState(false);
 
   const Characters =() =>{
     fetch(apiURL).then((response) => response.json()).then((data) => setCharacters(data.results))
@@ -15,15 +16,29 @@ function CardList() {
     Characters();
   }, []);
 
+  const addInfo = () => {
+    setShowMore(!showMore);
+    console.log("hello"); 
+  }
+
   return (
   <CardListStyled>
-   {characters.map(({ name, image, id }) => {
+   {characters.map(({ name, image, id, status, species, gender }) => {
      return (
        <CardContent key={id}>
           <img src={image}>
           </img>
          <CharacterName>{name}</CharacterName>
-         <button>Show more</button>
+         <button onClick={addInfo}>Show more</button>
+         <div>
+           {showMore? (
+             <>
+            <p>Species: {species}</p>
+            <p>Gender: {gender}</p>
+            <p>Status: {status}</p>
+            </>
+           ): ("")}
+         </div>
        </CardContent>
      );
    })}
