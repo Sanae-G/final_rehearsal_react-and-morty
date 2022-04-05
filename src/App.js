@@ -1,13 +1,13 @@
 import './App.css';
 import Header from './components/Header';
-import Card from './components/Card';
+import CardList from './components/CardList';
 import Navbar from './components/Navbar';
 
 function App() {
   return (
     <>
       <Header />
-      <Card />
+      <CardList />
       <Navbar />
     </>
   );

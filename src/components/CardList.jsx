@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-function Card() {
+function CardList() {
   return (
-    <CardList>
+    <CardListStyled>
    <CardContent>
       <img
         src="https://rickandmortyapi.com/api/character/avatar/2.jpeg"
@@ -27,11 +27,11 @@ function Card() {
       <CharacterName>Morty Smith</CharacterName>
       <button>Show more</button>
     </CardContent>
-    </CardList>
+    </CardListStyled>
   );
 }
 
-export default Card;
+export default CardList;
 
 const CardContent = styled.div`
     border: 1px solid black;
@@ -41,7 +41,7 @@ const CardContent = styled.div`
     flex-direction: column;
 `;
 
-const CardList = styled.section`
+const CardListStyled = styled.section`
     width: 100vw;
     display: flex;
     flex-direction: column;
