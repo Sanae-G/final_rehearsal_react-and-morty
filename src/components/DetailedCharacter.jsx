@@ -1,30 +1,25 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import styled from 'styled-components'
+import {CardContent, CardListStyled, CharacterName} from './CardList'
 
-export default function DetailedCharacter(){
 
-  const [showMore, setShowMore] = useState(false)
+export default function DetailedCharacter({characters}){
+
   const { id } = useParams()
 
-
-  const toggle = () => {
-    setShowMore(!showMore)
-}
-
+  const selectedCharacter = characters.find(character => character.id == id);
 
   return (
-   <p>Hello World</p>
-       /* {showMore ? (
-          <ul>
-            <li>species: {character.species}</li>
-            <li>gender: {character.gender}</li>
-            <li>status: {character.status}</li>
+    <CardListStyled>
+      <CardContent key={selectedCharacter.id}>
+        <img src={selectedCharacter.image}></img>
+        <CharacterName>{selectedCharacter.name}</CharacterName>
+        <ul>
+            <li>species: {selectedCharacter.species}</li>
+            <li>gender: {selectedCharacter.gender}</li>
+            <li>status: {selectedCharacter.status}</li>
           </ul>
-        ) : (
-          ''
-        )}
-      </li>
-    </List>*/
-  )
+      </CardContent>
+  </CardListStyled>
+);
 }

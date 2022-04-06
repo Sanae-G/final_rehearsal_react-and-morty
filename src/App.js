@@ -7,7 +7,6 @@ import FavoritesPage from './components/FavoritesPage';
 import RandomizerPage from './components/RandomizerPage';
 import ExtrasPage from './components/ExtrasPage';
 import { useEffect, useState } from "react";
-import { useParams } from 'react-router-dom';
 import DetailedCharacter from './components/DetailedCharacter'
 
 function App() {
@@ -29,7 +28,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<CharacterPage characters={characters}/>}/>
-        <Route path="character/:id" element={<DetailedCharacter />
+        <Route path="character/:id" element={<DetailedCharacter characters={characters}/>
             }
           />
         <Route path="/favorites" element={<FavoritesPage />}/>

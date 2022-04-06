@@ -1,9 +1,9 @@
 import CardList from './CardList';
 
-function CharacterPage({characters, showMore, toggleInfo}) {
+function CharacterPage({characters}) {
 
   return (
-      <CardList characters={characters} showMore={showMore} toggleInfo={toggleInfo}/>
+      <CardList characters={characters}/>
   );
 }
 

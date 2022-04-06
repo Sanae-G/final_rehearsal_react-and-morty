@@ -10,7 +10,7 @@ function CardList({ characters }) {
         <CardContent key={id}>
           <img src={image}></img>
           <CharacterName>{name}</CharacterName>
-          <button><Link to="/detailedCharacter">Show More</Link></button>
+          <button><Link to={"character/" + id}>Show More</Link></button>
         </CardContent>
       ))}
     </CardListStyled>
@@ -19,7 +19,7 @@ function CardList({ characters }) {
 
 export default CardList;
 
-const CardContent = styled.li`
+export const CardContent = styled.li`
   border: 1px solid black;
   border-radius: 0.5em;
   height: 10%;
@@ -27,7 +27,7 @@ const CardContent = styled.li`
   flex-direction: column;
 `;
 
-const CardListStyled = styled.ul`
+export const CardListStyled = styled.ul`
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -35,6 +35,6 @@ const CardListStyled = styled.ul`
   gap: 3em;
 `;
 
-const CharacterName = styled.h2`
+export const CharacterName = styled.h2`
   text-align: center;
 `;
