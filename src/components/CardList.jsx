@@ -3,20 +3,18 @@ import styled from 'styled-components';
 function CardList({ characters, showMore, toggleInfo}) {
   return (
     <CardListStyled>
-      {characters.map(({ name, image, id, species, gender, status }) => (
+      {characters.map(({ name, image, id, species, gender, status}) => (
         <CardContent key={id}>
           <img src={image}></img>
           <CharacterName>{name}</CharacterName>
           <button onClick={toggleInfo}>Show more</button>
-          <div>
            {showMore? (
-             <>
-            <p>Species: {species}</p>
-            <p>Gender: {gender}</p>
-            <p>Status: {status}</p>
-            </>
+            <ul>
+            <li>Species: hello</li>
+            <li>Gender: goodbye</li>
+            <li>Status: whatever</li>
+            </ul>
            ): ("")}
-         </div>
         </CardContent>
       ))}
     </CardListStyled>
