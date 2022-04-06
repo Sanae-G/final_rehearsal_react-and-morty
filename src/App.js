@@ -7,12 +7,13 @@ import FavoritesPage from './components/FavoritesPage';
 import RandomizerPage from './components/RandomizerPage';
 import ExtrasPage from './components/ExtrasPage';
 import { useEffect, useState } from "react";
+import { useParams } from 'react-router-dom';
+import DetailedCharacter from './components/DetailedCharacter'
 
 function App() {
 
   const apiURL="https://rickandmortyapi.com/api/character";
   const [characters, setCharacters] = useState([]);
-  const [showMore, setShowMore] = useState(false);
 
   const fetchCharacters =() =>{
     fetch(apiURL).then((response) => response.json()).then((data) => setCharacters(data.results))
@@ -22,16 +23,15 @@ function App() {
     fetchCharacters();
   }, []);
 
-  const toggleInfo = () => {
-    setShowMore(!showMore);
-  }
-
 
   return (
     <>
       <Header />
       <Routes>
-        <Route path="/" element={<CharacterPage characters={characters} toggleInfo={toggleInfo}/>}/>
+        <Route path="/" element={<CharacterPage characters={characters}/>}/>
+        <Route path="character/:id" element={<DetailedCharacter />
+            }
+          />
         <Route path="/favorites" element={<FavoritesPage />}/>
         <Route path="/randomizer" element={<RandomizerPage />}/>
         <Route path="/extras" element={<ExtrasPage />}/>

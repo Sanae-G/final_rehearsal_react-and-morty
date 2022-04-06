@@ -1,20 +1,16 @@
 import styled from 'styled-components';
+import DetailedCharacter from './DetailedCharacter';
+import { Route } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-function CardList({ characters, showMore, toggleInfo}) {
+function CardList({ characters }) {
   return (
     <CardListStyled>
-      {characters.map(({ name, image, id, species, gender, status}) => (
+      {characters.map(({ name, image, id}) => (
         <CardContent key={id}>
           <img src={image}></img>
           <CharacterName>{name}</CharacterName>
-          <button onClick={toggleInfo}>Show more</button>
-           {showMore? (
-            <ul>
-            <li>Species: hello</li>
-            <li>Gender: goodbye</li>
-            <li>Status: whatever</li>
-            </ul>
-           ): ("")}
+          <button><Link to="/detailedCharacter">Show More</Link></button>
         </CardContent>
       ))}
     </CardListStyled>
