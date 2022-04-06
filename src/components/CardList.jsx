@@ -24,6 +24,7 @@ export const CardContent = styled.li`
   height: 10%;
   display: flex;
   flex-direction: column;
+  position: relative;
 `;
 
 export const CardListStyled = styled.ul`
