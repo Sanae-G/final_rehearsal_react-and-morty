@@ -6,13 +6,13 @@ function CardList() {
   const apiURL="https://rickandmortyapi.com/api/character";
   const [characters, setCharacters] = useState([]);
 
-  const Characters =() =>{
+  const fetchCharacters =() =>{
     fetch(apiURL).then((response) => response.json()).then((data) => setCharacters(data.results))
   }
 
 
   useEffect(() => {
-    Characters();
+    fetchCharacters();
   }, []);
 
   return (
