@@ -1,21 +1,14 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 function Navbar() {
   return (
     <nav>
       <MenuItem>
-        <ListItem>
-          <NavLinks href="#">Home</NavLinks>
-        </ListItem>
-        <ListItem>
-          <NavLinks href="#">Favorites</NavLinks>
-        </ListItem>
-        <ListItem>
-          <NavLinks href="#">Randomizer</NavLinks>
-        </ListItem>
-        <ListItem>
-          <NavLinks href="#">Extras</NavLinks>
-        </ListItem>
+        <Link to="/">Home</Link>
+        <Link to="/favorites">Favorites</Link>
+        <Link to="/randomizer">Randomizer</Link>
+        <Link to="/extras">Extras</Link>
       </MenuItem>
     </nav>
   );
@@ -46,12 +39,3 @@ const MenuItem = styled.ul`
   background-color: #99ffcd;
 `;
 
-const ListItem = styled.li`
-  list-style-type: none;
-`;
-
-const NavLinks = styled.a`
-  text-decoration: none;
-  margin-bottom: 0;
-  color: rgb(0, 0, 0);
-`;
