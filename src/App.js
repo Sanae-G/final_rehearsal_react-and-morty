@@ -28,9 +28,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<CharacterPage characters={characters}/>}/>
-        <Route path="character/:id" element={<DetailedCharacter characters={characters}/>
-            }
-          />
+        <Route path="character/:id" element={<DetailedCharacter characters={characters}/>}/>
         <Route path="/favorites" element={<FavoritesPage />}/>
         <Route path="/randomizer" element={<RandomizerPage />}/>
         <Route path="/extras" element={<ExtrasPage />}/>
