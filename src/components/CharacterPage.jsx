@@ -1,11 +1,9 @@
 import CardList from './CardList';
 
-function CharacterPage() {
+function CharacterPage({characters, showMore, toggleInfo}) {
 
   return (
-    <>
-      <CardList />
-    </>
+      <CardList characters={characters} showMore={showMore} toggleInfo={toggleInfo}/>
   );
 }
 
