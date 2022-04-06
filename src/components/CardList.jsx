@@ -31,6 +31,7 @@ function CardList({ characters }) {
     </CardListStyled>
   );
 }
+}
 
 export default CardList;
 
