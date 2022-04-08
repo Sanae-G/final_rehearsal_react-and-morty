@@ -40,6 +40,7 @@ export default function DetailedCharacter({
             <FavButton
               onClick={toggleFavorites}
               favoriteCharacters={favoriteCharacters}
+              selectedCharacter={selectedCharacter}
             >
               Favorites
             </FavButton>
@@ -56,5 +57,5 @@ const FavButton = styled.button`
   width: 5em;
   top: -1.5em;
   right: 10px;
-  background-color: ${props => (props.isFavorite ? 'orange' : '')};
+  background-color: ${(props) => (props.favoriteCharacters.includes(props.selectedCharacter) ? 'orange' : '')};
 `;
