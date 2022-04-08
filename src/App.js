@@ -12,8 +12,10 @@ import DetailedCharacter from './components/DetailedCharacter';
 function App() {
   const apiURL = 'https://rickandmortyapi.com/api/character';
   const [characters, setCharacters] = useState([]);
-  const [favoriteCharacters, setFavoriteCharacters] = useState([]);
-  const [isFavorite, setIsFavorite] = useState(false);
+  const [favoriteCharacters, setFavoriteCharacters] = useState(() => {
+    const localStoredFavCharacters = localStorage.getItem('favCharacters');
+    return localStoredFavCharacters ? JSON.parse(localStoredFavCharacters) : [];
+  });
 
   const fetchCharacters = () => {
     fetch(apiURL)
@@ -25,9 +27,13 @@ function App() {
     fetchCharacters();
   }, []);
 
-  /* function removeFromFavorites(){
-    console.log("Hello");
-  }*/
+  /* const charactersWithFavoriteStatus = characters.map(character => ({ ...character, favorite: isFavorite }));
+  console.log(charactersWithFavoriteStatus) */
+
+  useEffect(() => {
+    localStorage.setItem('favCharacters', JSON.stringify(favoriteCharacters)); 
+  }, [favoriteCharacters]);
+
 
   return (
     <>
@@ -40,7 +46,7 @@ function App() {
         />
         <Route
           path="/character/:id"
-          element={<DetailedCharacter characters={characters} favoriteCharacters={favoriteCharacters} setFavoriteCharacters={setFavoriteCharacters} isFavorite={isFavorite} setIsFavorite={setIsFavorite}/>}
+          element={<DetailedCharacter characters={characters} favoriteCharacters={favoriteCharacters} setFavoriteCharacters={setFavoriteCharacters}/>}
         />
         <Route path="/favorites" element={<FavoritesPage favoriteCharacters={favoriteCharacters}/>} />
         <Route path="/randomizer" element={<RandomizerPage />} />
