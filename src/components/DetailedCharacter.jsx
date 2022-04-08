@@ -4,7 +4,7 @@ import {CardContent, CardListStyled, CharacterName} from './CardList'
 import styled from 'styled-components'
 
 
-export default function DetailedCharacter({characters}){
+export default function DetailedCharacter({characters, addToFavorites, removeFromFavorites}){
 
   const { id } = useParams()
 
@@ -14,7 +14,11 @@ export default function DetailedCharacter({characters}){
 
   function toggleFavorite() {
     setIsFavorite(!isFavorite);
-    console.log("what");
+    if(isFavorite === false){
+      removeFromFavorites()
+    } else if (isFavorite === true){
+      addToFavorites()
+    }
   }
 
   return (

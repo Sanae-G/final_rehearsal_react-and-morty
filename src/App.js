@@ -23,12 +23,24 @@ function App() {
   }, []);
 
 
+  function addToFavorites(){
+    /*const updateFavorites = [...addFavCharacters, selectedCharacter];
+    setAddFavCharacters(updateFavorites);*/
+    console.log("Goodbye")
+  }
+  
+  function removeFromFavorites(){
+    console.log("Hello");
+  }
+
+
+
   return (
     <>
       <Header />
       <Routes>
         <Route path="/" element={<CharacterPage characters={characters}/>}/>
-        <Route path="character/:id" element={<DetailedCharacter characters={characters}/>}/>
+        <Route path="character/:id" element={<DetailedCharacter characters={characters} removeFromFavorites={removeFromFavorites} addToFavorites={addToFavorites}/>}/>
         <Route path="/favorites" element={<FavoritesPage />}/>
         <Route path="/randomizer" element={<RandomizerPage />}/>
         <Route path="/extras" element={<ExtrasPage />}/>
