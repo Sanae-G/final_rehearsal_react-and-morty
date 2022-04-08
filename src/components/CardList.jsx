@@ -9,7 +9,7 @@ function CardList({ characters }) {
         <CardContent key={id}>
           <img src={image}></img>
           <CharacterName>{name}</CharacterName>
-          <button><Link to={"character/" + id}>Show More</Link></button>
+          <button><Link to={"/character/" + id}>Show More</Link></button>
         </CardContent>
       ))}
     </CardListStyled>
