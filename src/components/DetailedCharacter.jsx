@@ -10,6 +10,13 @@ export default function DetailedCharacter({characters}){
 
   const selectedCharacter = characters.find(character => character.id == id);
 
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  function toggleFavorite() {
+    setIsFavorite(!isFavorite);
+    console.log("what");
+  }
+
   return (
     <CardListStyled>
       <CardContent key={selectedCharacter.id}>
@@ -20,7 +27,7 @@ export default function DetailedCharacter({characters}){
             <li>gender: {selectedCharacter.gender}</li>
             <li>status: {selectedCharacter.status}</li>
           </ul>
-          <FavButton>Favorites</FavButton>
+          <FavButton onClick={toggleFavorite} isFavorite={isFavorite}>Favorites</FavButton>
       </CardContent>
   </CardListStyled>
 );
@@ -32,4 +39,5 @@ height: 5em;
 width: 5em;
 top: -1.5em;
 right: 10px;
+background-color: ${(props) => props.isFavorite? 'orange' : ''}
 `;
