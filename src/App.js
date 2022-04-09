@@ -49,7 +49,7 @@ function App() {
           element={<DetailedCharacter characters={characters} favoriteCharacters={favoriteCharacters} setFavoriteCharacters={setFavoriteCharacters}/>}
         />
         <Route path="/favorites" element={<FavoritesPage favoriteCharacters={favoriteCharacters}/>} />
-        <Route path="/randomizer" element={<RandomizerPage />} />
+        <Route path="/randomizer" element={<RandomizerPage characters={characters}/>} />
         <Route path="/extras" element={<ExtrasPage />} />
       </Routes>
       <Navbar />

@@ -28,7 +28,6 @@ export const CardContent = styled.li`
 `;
 
 export const CardListStyled = styled.ul`
-  width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
