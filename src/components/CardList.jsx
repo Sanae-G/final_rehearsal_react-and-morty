@@ -9,7 +9,7 @@ function CardList({ characters }) {
         <CardContent key={id}>
           <img src={image}></img>
           <CharacterName>{name}</CharacterName>
-          <button><Link to={"character/" + id}>Show More</Link></button>
+          <button><Link to={"/character/" + id}>Show More</Link></button>
         </CardContent>
       ))}
     </CardListStyled>
@@ -24,6 +24,7 @@ export const CardContent = styled.li`
   height: 10%;
   display: flex;
   flex-direction: column;
+  position: relative;
 `;
 
 export const CardListStyled = styled.ul`
