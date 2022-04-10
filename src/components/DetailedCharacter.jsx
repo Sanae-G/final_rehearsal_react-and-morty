@@ -14,7 +14,7 @@ export default function DetailedCharacter({
 
   function toggleFavorites() {
     
-    if (favoriteCharacters.includes(selectedCharacter)) {
+    if (favoriteCharacters.some(character => character.id === selectedCharacter.id)) {
       const updateFavorites = favoriteCharacters.filter(favoriteCharacter => {
         return favoriteCharacter.id !== parseInt(id);
       });
@@ -57,5 +57,5 @@ const FavButton = styled.button`
   width: 5em;
   top: -1.5em;
   right: 10px;
-  background-color: ${(props) => (props.favoriteCharacters.includes(props.selectedCharacter) ? 'orange' : '')};
+  background-color: ${(props) => (props.favoriteCharacters.some(character => character.id === props.selectedCharacter.id) ? 'orange' : '')};
 `;
