@@ -12,10 +12,8 @@ import DetailedCharacter from './components/DetailedCharacter';
 function App() {
   const apiURL = 'https://rickandmortyapi.com/api/character';
   const [characters, setCharacters] = useState([]);
-  const [favoriteCharacters, setFavoriteCharacters] = useState(() => {
-    const localStoredFavCharacters = localStorage.getItem('favCharacters');
-    return localStoredFavCharacters ? JSON.parse(localStoredFavCharacters) : [];
-  });
+  const [favoriteCharacters, setFavoriteCharacters] = useState([])
+
 
   const fetchCharacters = () => {
     fetch(apiURL)
@@ -31,9 +29,15 @@ function App() {
   console.log(charactersWithFavoriteStatus) */
 
   useEffect(() => {
-    localStorage.setItem('favCharacters', JSON.stringify(favoriteCharacters)); 
+    const favCharactersIDs = favoriteCharacters.map(favCharacter => favCharacter.id); 
+    localStorage.setItem('favCharacters', JSON.stringify(favCharactersIDs)); 
   }, [favoriteCharacters]);
 
+  useEffect(() => {
+      const favCharactersIDs =  JSON.parse(localStorage.getItem('favCharacters'));
+      const favCharacters = characters.filter(character => favCharactersIDs.includes(character.id));
+      setFavoriteCharacters(favCharacters);
+  })
 
   return (
     <>
